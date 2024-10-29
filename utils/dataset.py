@@ -129,7 +129,7 @@ class BodyCompositionInference(Dataset):
     
     def __getitem__(self, index: int) -> Dict[str, torch.Tensor]:
         try:
-            src_path = Path(self.image_paths[index].replace('workspace', 'mnt/nas203'))
+            src_path = Path(self.image_paths[index])
             inputs = self._preprocessing(src_path)
         except Exception as e:
             print(f"Warning: Failed to load image at index {index}: {str(e)}")
